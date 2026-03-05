@@ -1,0 +1,5 @@
+{
+  "name": "Vietnam Travel Tracker",
+  "description": "A web application to track location updates and photos on a map of Vietnam.",
+  "requestFramePermissions": ["geolocation", "camera"]
+}
