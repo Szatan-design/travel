@@ -1,4 +1,3 @@
-import Database from 'better-sqlite3';
 import pg from 'pg';
 
 // Interface for common DB operations
@@ -14,11 +13,12 @@ export interface DBAdapter {
 class SQLiteAdapter implements DBAdapter {
   private db: any;
 
-  constructor() {
-    this.db = new Database('travel.db');
-  }
+  constructor() {}
 
   async init() {
+    const { default: Database } = await import('better-sqlite3');
+    this.db = new Database('travel.db');
+
     this.db.exec(`
       CREATE TABLE IF NOT EXISTS posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
